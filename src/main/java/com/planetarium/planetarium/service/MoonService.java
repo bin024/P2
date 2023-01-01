@@ -72,7 +72,7 @@ public class MoonService {
         if (moons.size() != 0) {
             return moons;
         } else {
-            throw new EntityNull("No moons found.");
+            throw new EntityNull("No moon(s) found.");
         }
     }
 
