@@ -37,7 +37,7 @@ public class AuthenticationController {
     @ExceptionHandler(PSQLException.class)
     public ResponseEntity<String> sqlIssue(PSQLException e){
         authenticationLogger.error(e.getLocalizedMessage(), e);
-        return new ResponseEntity<>("Username taken. Please select another.", HttpStatus.UNPROCESSABLE_ENTITY);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @ExceptionHandler(AuthenticationFailed.class)
