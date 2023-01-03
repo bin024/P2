@@ -16,7 +16,7 @@ public class Planet {
     @Column(name = "name")
     private String name;
 
-    /*  has to be written in all lowercase else the stupid column name isn't identified
+    /*  has to be written in all lowercase else the column name isn't identified
      *  this took me 30 minutes to debug
      *  make sure to make it capital I when creating table
      *  point being: for 
