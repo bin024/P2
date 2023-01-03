@@ -76,7 +76,6 @@ public class MoonController {
 
     @DeleteMapping("/api/moon/{id}")
     public ResponseEntity<String> deleteMoon(@PathVariable int id) {
-        //wanted to check for planet first but since im not getting an error from sql who cares
         //Planet p = this.planetService.getPlanetById(id);
         return new ResponseEntity<>(this.moonService.deleteMoonById(id), HttpStatus.OK);
     }
