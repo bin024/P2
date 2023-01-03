@@ -68,7 +68,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> createUser(@RequestBody User user) {
+    public ResponseEntity<String> createUser(@RequestBody User user) throws PSQLException {
         return new ResponseEntity<String>(this.userService.createUser(user), HttpStatus.OK);
     }
     

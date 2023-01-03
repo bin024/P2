@@ -2,6 +2,7 @@ package com.planetarium.planetarium.service;
 
 import java.util.Optional;
 
+import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,13 @@ public class UserService {
         }
     }
 
-    public String createUser(User user){
+    public String createUser(User user) throws PSQLException{
+
+        Optional<User> possibleUser = this.userDao.getUserByUsername(user.getUsername());
+
+        if (possibleUser.isPresent()) {
+            throw new PSQLException("Username taken, please select another.", null);
+        }
 
         if (user.getUsername() != null && user.getPassword() != null) {
             this.userDao.createUser(user.getUsername(), user.getPassword());
