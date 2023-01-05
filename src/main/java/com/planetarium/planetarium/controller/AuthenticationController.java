@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -75,9 +74,4 @@ public class AuthenticationController {
         return new ResponseEntity<String>(this.userService.createUser(user), HttpStatus.OK);
     }
 
-    @GetMapping("/uhoh")
-    public ResponseEntity<String> returnFiveHundered(){
-        return new ResponseEntity<>("returning 500 status code", HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-    
 }
