@@ -3,7 +3,7 @@ version: '4'
 
 services:
   app:
-    image: oloringray007/planetarium:file
+    image: oloringray007/planetarium:broken
     container_name: planetarium
     ports:
      - 8080:8080
@@ -35,3 +35,12 @@ services:
     depends_on:
       - loki # ensures loki is setup before Grafana tries to interface with it
 
+  prometheus:
+    image: prom/prometheus:latest # think of this as your database for your metrics over time
+    ports:
+      - 9090:9090
+    volumes:
+      - ./configs/prometheus-config.yml:/etc/prometheus/prometheus-config.yml
+      - ./configs/prometheus-rules.yml:/etc/prometheus/prometheus-rules.yml
+    container_name: logging-prometheus
+    command: "--config.file=/etc/prometheus/prometheus-config.yml"
