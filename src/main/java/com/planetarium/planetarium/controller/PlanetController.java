@@ -52,16 +52,19 @@ public class PlanetController {
     
     @GetMapping("/api/planets")
     public ResponseEntity<List<Planet>> getAllPlanets() {
+        planetLogger.info("");
         return new ResponseEntity<>(this.planetService.getAllPlanets(), HttpStatus.OK);
     }
 
     @GetMapping("/api/planet/{name}")
     public ResponseEntity<List<Planet>> getPlanetByName(@PathVariable String name) {
+        planetLogger.info("");
         return new ResponseEntity<>(this.planetService.getPlanetByName(name), HttpStatus.OK);
     }
 
     @GetMapping("/api/planet/id/{id}")
     public ResponseEntity<Planet> getPlanetByName(@PathVariable int id) {
+        planetLogger.info("");
         return new ResponseEntity<>(this.planetService.getPlanetById(id), HttpStatus.OK);
     }
 
@@ -74,11 +77,13 @@ public class PlanetController {
     */
     @PostMapping("/api/planet")
     public ResponseEntity<String> createPlanet(@RequestBody Planet p) {
+        planetLogger.info("");
         return new ResponseEntity<>(this.planetService.createPlanet(p), HttpStatus.OK);
     }
 
     @DeleteMapping("/api/planet/{id}")
     public ResponseEntity<String> deletePlanet(@PathVariable int id) {
+        planetLogger.info("");
         return new ResponseEntity<>(this.planetService.deletePlanetById(id), HttpStatus.OK);
     }
 }

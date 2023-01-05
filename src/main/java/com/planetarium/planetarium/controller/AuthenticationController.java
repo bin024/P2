@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,19 +58,26 @@ public class AuthenticationController {
 
         session.setAttribute("user", u.getUsername());
 
+        authenticationLogger.info("");
         return new ResponseEntity<String>(message, HttpStatus.OK);
     }
 
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpSession session) {
         session.invalidate();
-
+        authenticationLogger.info("");
         return new ResponseEntity<String>("Logged out sucessfully.", HttpStatus.OK);
     }
 
     @PostMapping("/register")
     public ResponseEntity<String> createUser(@RequestBody User user) throws PSQLException {
+        authenticationLogger.info("");
         return new ResponseEntity<String>(this.userService.createUser(user), HttpStatus.OK);
+    }
+
+    @GetMapping("/uhoh")
+    public ResponseEntity<String> returnFiveHundered(){
+        return new ResponseEntity<>("returning 500 status code", HttpStatus.INTERNAL_SERVER_ERROR);
     }
     
 }

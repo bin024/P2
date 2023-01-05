@@ -50,33 +50,38 @@ public class MoonController {
 
     @GetMapping("/api/moons")
     public ResponseEntity<List<Moon>> getAllMoons() {
+        moonLogger.info("");
         return new ResponseEntity<>(this.moonService.getAllMoons(), HttpStatus.OK);
     }
 
     @GetMapping("/api/moon/{name}")
     public ResponseEntity<List<Moon>> getMoonByName(@PathVariable String name) {
+        moonLogger.info("");
         return new ResponseEntity<>(this.moonService.getMoonByName(name), HttpStatus.OK);
     }
 
     @GetMapping("/api/moon/id/{id}")
     public ResponseEntity<Moon> getPlanetByName(@PathVariable int id) {
+        moonLogger.info("");
         return new ResponseEntity<>(this.moonService.getMoonById(id), HttpStatus.OK);
     }
 
     //PathVariable must match exactly with how it is written in URI
     @GetMapping("/api/planet/{planetId}/moons")
     public ResponseEntity<List<Moon>> getMoonsFromPlanet(@PathVariable int planetId) {
+        moonLogger.info("");
         return new ResponseEntity<>(this.moonService.getMoonsFromPlanet(planetId), HttpStatus.OK);
     }
 
     @PostMapping("/api/moon")
     public ResponseEntity<String> createMoon(@RequestBody Moon m) {
+        moonLogger.info("");
         return new ResponseEntity<>(this.moonService.createMoon(m), HttpStatus.OK);
     }
 
     @DeleteMapping("/api/moon/{id}")
     public ResponseEntity<String> deleteMoon(@PathVariable int id) {
-        //Planet p = this.planetService.getPlanetById(id);
+        moonLogger.info("");
         return new ResponseEntity<>(this.moonService.deleteMoonById(id), HttpStatus.OK);
     }
 }
