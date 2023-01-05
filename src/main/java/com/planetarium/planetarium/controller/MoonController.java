@@ -48,8 +48,8 @@ public class MoonController {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
     }
 
-    @GetMapping("/api/moon")
-    public ResponseEntity<List<Moon>> getAllPlanets() {
+    @GetMapping("/api/moons")
+    public ResponseEntity<List<Moon>> getAllMoons() {
         return new ResponseEntity<>(this.moonService.getAllMoons(), HttpStatus.OK);
     }
 

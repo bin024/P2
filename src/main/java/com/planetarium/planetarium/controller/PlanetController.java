@@ -50,7 +50,7 @@ public class PlanetController {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
     }
     
-    @GetMapping("/api/planet")
+    @GetMapping("/api/planets")
     public ResponseEntity<List<Planet>> getAllPlanets() {
         return new ResponseEntity<>(this.planetService.getAllPlanets(), HttpStatus.OK);
     }
