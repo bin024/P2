@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: planetarium-container
-      image: oloringray007/planetarium:8
+      image: oloringray007/planetarium:stdOut
       ports:
       - containerPort: 8080
