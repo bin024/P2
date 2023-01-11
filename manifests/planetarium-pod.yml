@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: planetarium-pod
+  labels:
+    app: planetarium-pod
+spec:
+  containers:
+    - name: planetarium-container
+      image: oloringray007/planetarium:stdOut
+      ports:
+      - containerPort: 8080
