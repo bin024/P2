@@ -25,5 +25,22 @@ spec:
         volumeMounts: 
           - mountPath: /logs
             name: logs
+    
+      - name: promtail-container
+        image: grafana/promtail
+        args:
+        - -config.file=/etc/promtail/promtail.yml
+        volumeMounts:
+        - name: logs # the promtail and greeter containers will share this logs volume
+          mountPath: /logs # this is where the logs will be saved in the promtail container
+        - name: promtail-config
+          mountPath: /etc/promtail
+
+
       volumes:
-            - name: logs
+        - name: logs # this is the volume that will have data from the pod stored in
+        - name: promtail-config # volume name
+          configMap: # configMaps are objects key value pair collections, usually of non-sensitive information
+            name: promtail-config # configMap name
+
+          
