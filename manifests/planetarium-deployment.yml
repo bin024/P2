@@ -6,14 +6,14 @@ metadata:
   labels:
     app: "planetarium"
 spec: 
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: "planetarium"
+      pod: "planetarium-pod"
   template: 
     metadata: 
       labels:
-        app: "planetarium"
+        pod: "planetarium-pod"
     spec:
       # terminationGracePeriodSeconds: 30
       containers:
