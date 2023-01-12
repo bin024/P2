@@ -25,7 +25,7 @@ spec:
         volumeMounts: 
           - mountPath: /logs
             name: logs
-      - name: promtail-containerPort
+      - name: promtail-container
         image: grafana/promtail
         args:
         - -config.file=/etc/promtail/promtail.yml
