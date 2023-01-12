@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: planetarium-pod
   labels:
-    app: planetarium-pod
+    app: planetarium
 spec:
   containers:
     - name: planetarium-container
