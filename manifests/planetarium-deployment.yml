@@ -18,7 +18,12 @@ spec:
       # terminationGracePeriodSeconds: 30
       containers:
       - name: "planetarium-app"
-        image: "oloringray007/planetarium:stdOut"
+        image: "oloringray007/planetarium:8"
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
+        volumeMounts: 
+          - mountPath: /logs
+            name: logs
+      volumes:
+            - name: logs
