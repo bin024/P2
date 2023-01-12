@@ -9,11 +9,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      pod: "planetarium-pod"
+      app: "planetarium"
   template: 
     metadata: 
       labels:
-        pod: "planetarium-pod"
+        app: "planetarium"
     spec:
       # terminationGracePeriodSeconds: 30
       containers:
