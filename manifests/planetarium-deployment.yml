@@ -6,18 +6,36 @@ metadata:
   labels:
     app: "planetarium"
 spec: 
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      pod: "planetarium-pod"
+      app: "planetarium"
   template: 
     metadata: 
       labels:
-        pod: "planetarium-pod"
+        app: "planetarium"
     spec:
+      # terminationGracePeriodSeconds: 30
       containers:
       - name: "planetarium-app"
         image: "oloringray007/planetarium:8"
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
+        volumeMounts: 
+          - mountPath: /logs
+            name: logs
+      - name: promtail-container
+        image: grafana/promtail
+        args:
+        - -config.file=/etc/promtail/promtail.yml
+        volumeMounts:
+        - name: logs
+          mountPath: /logs
+        - name: promtail-config
+          mountPath: /etc/promtail
+      volumes:
+        - name: logs
+        - name: promtail-config
+          configMap:
+            name: promtail-config
