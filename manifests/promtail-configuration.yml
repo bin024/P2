@@ -17,7 +17,7 @@ data:
         static_configs:
           - targets:
               - localhost
-            lables:
+            labels:
               job: app-logs
               app: planetarium
               __path__: /logs/*.log
