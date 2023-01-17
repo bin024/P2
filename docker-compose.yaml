@@ -3,7 +3,7 @@ version: '4'
 
 services:
   app:
-    image: oloringray007/planetarium:broken
+    image: oloringray007/planetarium:11
     container_name: planetarium
     ports:
      - 8080:8080
