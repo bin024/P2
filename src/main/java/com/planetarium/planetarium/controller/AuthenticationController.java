@@ -55,7 +55,7 @@ public class AuthenticationController {
         //compare user input password with the password associated with username
         String message = userService.authenticatePassword(u.getPassword(), body.getPassword());
 
-        session.setAttribute("user", u.getUsername());
+        session.setAttribute("user", u);
 
         authenticationLogger.info("");
         return new ResponseEntity<String>(message, HttpStatus.OK);
