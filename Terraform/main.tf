@@ -29,10 +29,13 @@ resource "aws_db_instance" "planetarium-p2" {
   engine_version         = "14.1"
   username               = var.db_username
   password               = var.db_password
+  db_name                = "planetarium"
   vpc_security_group_ids = ["sg-01892939cdb146fae", "sg-0856b724d5162426a"]
   multi_az               = false
+  publicly_accessible    = true
   allow_major_version_upgrade = false
   auto_minor_version_upgrade = false
+  skip_final_snapshot = true
 }
 
 resource "aws_s3_bucket" "terraform_state" {
