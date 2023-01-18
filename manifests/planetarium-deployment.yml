@@ -18,7 +18,7 @@ spec:
       # terminationGracePeriodSeconds: 30
       containers:
       - name: "planetarium-app"
-        image: "oloringray007/planetarium:11"
+        image: "oloringray007/planetarium:20"
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
