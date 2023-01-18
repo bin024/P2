@@ -35,6 +35,7 @@ resource "aws_db_instance" "planetarium-p2" {
   publicly_accessible    = true
   allow_major_version_upgrade = false
   auto_minor_version_upgrade = false
+  skip_final_snapshot = true
 }
 
 resource "aws_s3_bucket" "terraform_state" {
