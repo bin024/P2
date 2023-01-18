@@ -163,6 +163,6 @@ buildNumber.properties
 terraform.tfvars
 
 #sensitive info
-application.properties
+*.properties
 src\main\resources\application.properties
 # End of https://www.toptal.com/developers/gitignore/api/maven,java,intellij
