@@ -61,7 +61,7 @@ public class MoonController {
     }
 
     @GetMapping("/api/moon/id/{id}")
-    public ResponseEntity<Moon> getPlanetByName(@PathVariable int id) {
+    public ResponseEntity<Moon> getMoonById(@PathVariable int id) {
         moonLogger.info("");
         return new ResponseEntity<>(this.moonService.getMoonById(id), HttpStatus.OK);
     }
